@@ -13,20 +13,6 @@ public class Main {
     }
 }
 
-// Main Menu
-class Menu extends JFrame{
-    //Constructor
-    public Menu(){
-        setTitle("Memorama: Main Menu");
-        setSize(800,800);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
-
-        
-    }
-}
-
 class Interface extends JFrame{
 
     // Constructor
