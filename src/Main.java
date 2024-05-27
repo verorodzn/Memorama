@@ -8,8 +8,8 @@ import java.util.Collections;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        //Menu game = new Menu();
-        Interface game = new Interface();
+        new MainMenu();
+        //Interface game = new Interface();
     }
 }
 
