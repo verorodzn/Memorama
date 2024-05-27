@@ -77,11 +77,11 @@ public class MainMenu extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         // Button Actions
         if (e.getActionCommand().equals("Fácil")) {
-            System.out.println("You clicked the Fácil button.");
+            new Interface(6);
         } else if (e.getActionCommand().equals("Medio")) {
-            System.out.println("You clicked the Medio button.");
+            new Interface(12);
         } else if (e.getActionCommand().equals("Difícil")) {
-            System.out.println("You clicked the Difícil button.");
+            new Interface(20);
         } else if (e.getActionCommand().equals("Salir")) {
             System.exit(0);
         }

@@ -14,9 +14,6 @@ class Card extends JButton{
     private static int pairs = 0;
     private Panel panel;
 
-    int cardWidth = 270;
-    int cardHeight = 400;
-
     // Constructor
     public Card(Panel panel, ImageIcon cardImage){
         this.panel = panel;
@@ -64,6 +61,7 @@ class Card extends JButton{
                 private void win() {
                     JOptionPane.showMessageDialog(null, "¡Felicidades! Ganaste.");
                     System.exit(0);
+                    new MainMenu();
                 }
             });
 
@@ -72,22 +70,29 @@ class Card extends JButton{
         }
     }
 
-    // Array with possible images
-    public static ArrayList<Card> generateCards(Panel panel) {
+    public static ArrayList<Card> generateCards(Panel panel, int numCards) {
         ArrayList<Card> cardList = new ArrayList<>();
-
+    
         ImageIcon[] uniqueCardImages = {
-            new ImageIcon("C:\\Users\\veror\\OneDrive\\Documentos\\GitHub\\Memorama\\src\\imgs\\tlacuahe1.png"),
+            new ImageIcon("C:\\Users\\veror\\OneDrive\\Documentos\\GitHub\\Memorama\\src\\imgs\\axolote1.png"),
+            new ImageIcon("C:\\Users\\veror\\OneDrive\\Documentos\\GitHub\\Memorama\\src\\imgs\\axolote2.png"),
+            new ImageIcon("C:\\Users\\veror\\OneDrive\\Documentos\\GitHub\\Memorama\\src\\imgs\\conejo.png"),
             new ImageIcon("C:\\Users\\veror\\OneDrive\\Documentos\\GitHub\\Memorama\\src\\imgs\\fuego.png"),
-            new ImageIcon("C:\\Users\\veror\\OneDrive\\Documentos\\GitHub\\Memorama\\src\\imgs\\conejo.png")
+            new ImageIcon("C:\\Users\\veror\\OneDrive\\Documentos\\GitHub\\Memorama\\src\\imgs\\jaguar.png"),
+            new ImageIcon("C:\\Users\\veror\\OneDrive\\Documentos\\GitHub\\Memorama\\src\\imgs\\luna.png"),
+            new ImageIcon("C:\\Users\\veror\\OneDrive\\Documentos\\GitHub\\Memorama\\src\\imgs\\maiz.png"),
+            new ImageIcon("C:\\Users\\veror\\OneDrive\\Documentos\\GitHub\\Memorama\\src\\imgs\\tlacuache1.png"),
+            new ImageIcon("C:\\Users\\veror\\OneDrive\\Documentos\\GitHub\\Memorama\\src\\imgs\\tlacuache2.png"),
+            new ImageIcon("C:\\Users\\veror\\OneDrive\\Documentos\\GitHub\\Memorama\\src\\imgs\\tortuga.png")
+            
         };
-
+    
         // Create pairs
-        for (ImageIcon cardImageIcon : uniqueCardImages) {
-            cardList.add(new Card(panel, cardImageIcon));
-            cardList.add(new Card(panel, cardImageIcon));
+        for (int i = 0; i < numCards / 2; i++) {
+            cardList.add(new Card(panel, uniqueCardImages[i % uniqueCardImages.length]));
+            cardList.add(new Card(panel, uniqueCardImages[i % uniqueCardImages.length]));
         }
-
+    
         // Shuffle so that the cards aren't always in the same order
         Collections.shuffle(cardList);
         return cardList;
